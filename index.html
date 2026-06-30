@@ -60,22 +60,54 @@ a{color:inherit;text-decoration:none}
 .obrigado p b{color:var(--white);font-weight:600}
 .aviso{
   display:inline-flex;align-items:center;gap:8px;
-  background:rgba(255,85,0,.08);
-  border:1px solid rgba(255,85,0,.35);
-  padding:11px 20px;
-  font-size:clamp(.8rem,2vw,.88rem);
-  font-weight:500;color:#E0E2EA;
-  margin-bottom:28px;
-  white-space:nowrap;
+  padding:8px 0;
+  font-size:clamp(.82rem,2vw,.9rem);
+  font-weight:500;color:#C8CAD4;
+  margin-bottom:24px;
   justify-content:center;
-  box-shadow:0 0 16px rgba(255,85,0,.07);
+  background:none;border:none;
 }
 .aviso span{color:var(--fire);font-weight:700}
 
 /* Etapas */
+/* Container externo com borda e efeito de luz */
+.etapas-wrap{
+  position:relative;
+  margin-bottom:24px;
+  border-radius:12px;
+  padding:1px;
+  background:linear-gradient(135deg,rgba(34,197,94,.5),rgba(34,197,94,.05) 40%,rgba(255,255,255,.05) 60%,rgba(34,197,94,.3));
+  overflow:hidden;
+}
+.etapas-wrap::before{
+  content:'';
+  position:absolute;
+  inset:-60%;
+  background:conic-gradient(from 0deg,transparent 0deg,rgba(34,197,94,.6) 40deg,transparent 80deg);
+  animation:spinLight 3s linear infinite;
+  border-radius:50%;
+}
+@keyframes spinLight{
+  0%{transform:rotate(0deg)}
+  100%{transform:rotate(360deg)}
+}
+.etapas-inner{
+  position:relative;
+  z-index:1;
+  background:#0E0E10;
+  border-radius:11px;
+  padding:16px 20px;
+}
+.etapas-title{
+  font-size:.62rem;font-weight:700;
+  letter-spacing:.2em;text-transform:uppercase;
+  color:#fff;text-align:center;
+  margin-bottom:14px;
+  display:block;
+}
 .etapas{
   display:flex;align-items:center;justify-content:center;
-  gap:0;margin-bottom:28px;width:100%;
+  gap:0;width:100%;
 }
 .etapa{
   display:flex;align-items:center;gap:10px;
@@ -195,10 +227,13 @@ footer p{font-size:clamp(.72rem,1.5vw,.78rem);color:rgba(255,255,255,.5)}
 <!-- ══ BLOCO 1 — OBRIGADO ══ -->
 <section class="obrigado">
   <div class="w">
-    <div class="tag" style="justify-content:center"><span style="margin-left:0">Compra recebida</span></div>
+    <div class="tag" style="justify-content:center;color:#fff"><span style="margin-left:0;color:#fff">Compra recebida</span></div>
 
     <!-- Etapas -->
-    <div class="etapas">
+    <div class="etapas-wrap">
+      <div class="etapas-inner">
+        <span class="etapas-title">Progresso da compra</span>
+        <div class="etapas">
       <div class="etapa done">
         <div class="etapa-num">✓</div>
         <div class="etapa-txt">
@@ -213,7 +248,9 @@ footer p{font-size:clamp(.72rem,1.5vw,.78rem);color:rgba(255,255,255,.5)}
           <span class="etapa-label">Etapa 2</span>
           <span class="etapa-desc">Confirmar acesso</span>
         </div>
+        </div>
       </div>
+    </div>
     </div>
 
     <div class="aviso">
