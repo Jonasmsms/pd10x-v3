@@ -72,6 +72,50 @@ a{color:inherit;text-decoration:none}
 }
 .aviso span{color:var(--fire);font-weight:700}
 
+/* Etapas */
+.etapas{
+  display:flex;align-items:center;justify-content:center;
+  gap:0;margin-bottom:28px;width:100%;
+}
+.etapa{
+  display:flex;align-items:center;gap:10px;
+  padding:12px 20px;flex:1;max-width:220px;
+}
+.etapa-num{
+  width:32px;height:32px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Orbitron',sans-serif;font-weight:900;
+  font-size:.8rem;flex-shrink:0;
+}
+.etapa.done .etapa-num{
+  background:#22c55e;color:#fff;
+  box-shadow:0 0 12px rgba(34,197,94,.4);
+}
+.etapa.lock .etapa-num{
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.15);
+  color:#606068;
+}
+.etapa-txt{text-align:left}
+.etapa-label{
+  font-size:.62rem;font-weight:600;
+  letter-spacing:.16em;text-transform:uppercase;
+  display:block;margin-bottom:2px;
+}
+.etapa.done .etapa-label{color:#22c55e}
+.etapa.lock .etapa-label{color:#606068}
+.etapa-desc{
+  font-size:.82rem;font-weight:500;
+  display:block;
+}
+.etapa.done .etapa-desc{color:#E0E2EA}
+.etapa.lock .etapa-desc{color:#484850}
+.etapa-divider{
+  width:40px;height:1px;
+  background:linear-gradient(90deg,#22c55e,rgba(255,255,255,.1));
+  flex-shrink:0;
+}
+
 /* VSL */
 .vsl-wrap{max-width:680px;margin:0 auto;position:relative}
 .vsl-frame{position:relative;aspect-ratio:16/9;background:#000;border:1px solid var(--lb)}
@@ -152,6 +196,26 @@ footer p{font-size:clamp(.72rem,1.5vw,.78rem);color:rgba(255,255,255,.5)}
 <section class="obrigado">
   <div class="w">
     <div class="tag" style="justify-content:center"><span style="margin-left:0">Compra recebida</span></div>
+
+    <!-- Etapas -->
+    <div class="etapas">
+      <div class="etapa done">
+        <div class="etapa-num">✓</div>
+        <div class="etapa-txt">
+          <span class="etapa-label">Etapa 1</span>
+          <span class="etapa-desc">Compra realizada</span>
+        </div>
+      </div>
+      <div class="etapa-divider"></div>
+      <div class="etapa lock">
+        <div class="etapa-num">🔒</div>
+        <div class="etapa-txt">
+          <span class="etapa-label">Etapa 2</span>
+          <span class="etapa-desc">Confirmar acesso</span>
+        </div>
+      </div>
+    </div>
+
     <div class="aviso">
       📧 Acesso chegando no seu <span>e-mail em breve</span>
     </div>
